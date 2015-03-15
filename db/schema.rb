@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311100546) do
+ActiveRecord::Schema.define(version: 20150315062124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 20150311100546) do
     t.integer  "quantity"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "order_id"
   end
 
+  add_index "medicine_orders", ["order_id"], name: "index_medicine_orders_on_order_id", using: :btree
+
+  create_table "orders", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "medicine_orders", "orders"
 end
