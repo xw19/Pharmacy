@@ -16,4 +16,14 @@ RSpec.describe Customer, type: :model do
     customer = FactoryGirl.build(:customer, name: "a" * 51)
     expect(customer).not_to be_valid
   end
+
+  it "name should be present" do
+    customer = FactoryGirl.build(:customer, address_line1: "")
+    expect(customer).not_to be_valid
+  end
+
+  it "name should not be too long" do
+    customer = FactoryGirl.build(:customer, address_line1: "a" * 151)
+    expect(customer).not_to be_valid
+  end
 end
