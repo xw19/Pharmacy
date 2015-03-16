@@ -1,7 +1,6 @@
 class CreateCustomers < ActiveRecord::Migration
   def change
     create_table :customers do |t|
-      t.references :order, index: true
       t.string :name
       t.string :address_line1
       t.string :address_line2
@@ -13,6 +12,5 @@ class CreateCustomers < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-    add_foreign_key :customers, :orders
   end
 end

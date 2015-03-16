@@ -11,13 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150315064515) do
+ActiveRecord::Schema.define(version: 20150316092540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "customers", force: :cascade do |t|
-    t.integer  "order_id"
     t.string   "name"
     t.string   "address_line1"
     t.string   "address_line2"
@@ -30,9 +29,9 @@ ActiveRecord::Schema.define(version: 20150315064515) do
     t.datetime "updated_at",    null: false
     t.string   "mobile"
     t.string   "phone"
+    t.float    "latitude"
+    t.float    "longitude"
   end
-
-  add_index "customers", ["order_id"], name: "index_customers_on_order_id", using: :btree
 
   create_table "medicine_orders", force: :cascade do |t|
     t.string   "medicine_name"
@@ -45,10 +44,13 @@ ActiveRecord::Schema.define(version: 20150315064515) do
   add_index "medicine_orders", ["order_id"], name: "index_medicine_orders_on_order_id", using: :btree
 
   create_table "orders", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "customer_id"
   end
 
-  add_foreign_key "customers", "orders"
+  add_index "orders", ["customer_id"], name: "index_orders_on_customer_id", using: :btree
+
   add_foreign_key "medicine_orders", "orders"
+  add_foreign_key "orders", "customers"
 end
