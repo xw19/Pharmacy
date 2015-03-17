@@ -5,5 +5,6 @@ class Customer < ActiveRecord::Base
   validates :address_line1 , presence: true, length: { maximum: 150 }
   validates :address_line2 , presence: true, length: { maximum: 150 }
   validates :city_village , presence: true, length: { maximum: 20 }
+  validates :district , presence: true, length: { maximum: 20 }
 
 end

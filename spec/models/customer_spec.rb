@@ -46,4 +46,14 @@ RSpec.describe Customer, type: :model do
     customer = FactoryGirl.build(:customer, city_village: "a" * 21)
     expect(customer).not_to be_valid
   end
+
+  it "district should be present" do
+    customer = FactoryGirl.build(:customer, district: "")
+    expect(customer).not_to be_valid
+  end
+
+  it "district should not be too long" do
+    customer = FactoryGirl.build(:customer, district: "a" * 21)
+    expect(customer).not_to be_valid
+  end
 end
