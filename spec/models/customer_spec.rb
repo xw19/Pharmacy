@@ -17,23 +17,33 @@ RSpec.describe Customer, type: :model do
     expect(customer).not_to be_valid
   end
 
-  it "name should be present" do
+  it "address line 1 should be present" do
     customer = FactoryGirl.build(:customer, address_line1: "")
     expect(customer).not_to be_valid
   end
 
-  it "name should not be too long" do
+  it "address line 1 should not be too long" do
     customer = FactoryGirl.build(:customer, address_line1: "a" * 151)
     expect(customer).not_to be_valid
   end
 
-  it "name should be present" do
+  it "address_line 2 should be present" do
     customer = FactoryGirl.build(:customer, address_line2: "")
     expect(customer).not_to be_valid
   end
 
-  it "name should not be too long" do
+  it "address line 2 should not be too long" do
     customer = FactoryGirl.build(:customer, address_line2: "a" * 151)
+    expect(customer).not_to be_valid
+  end
+
+  it "city should be present" do
+    customer = FactoryGirl.build(:customer, city_village: "")
+    expect(customer).not_to be_valid
+  end
+
+  it "city should not be too long" do
+    customer = FactoryGirl.build(:customer, city_village: "a" * 21)
     expect(customer).not_to be_valid
   end
 end
