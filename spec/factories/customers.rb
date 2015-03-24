@@ -8,6 +8,7 @@ FactoryGirl.define do
     state "California"
     country "Brazil"
     pin "700060"
+    mobile '8981645897'
   end
 
 end
