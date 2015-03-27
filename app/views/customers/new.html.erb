@@ -1,2 +1,18 @@
-<h1>Customer#new</h1>
-<p>Find me in app/views/customer/new.html.erb</p>
+<h1>New Order</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10  col-md-offset-1">
+      <%= simple_form_for(@customer, html: { class: 'form-horizontal' }, data: {conifrm: "Are you sure ?"}) do |form| %>
+        <%= form.input :name %>
+        <%= form.input :address_line1 %>
+        <%= form.input :address_line2 %>
+        <%= form.input :city_village %>
+        <%= form.input :district %>
+        <%= form.input :state %>
+        <%= form.input :pin %>
+        <%= form.input :mobile %>
+        <%= form.button :submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
