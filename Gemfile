@@ -55,5 +55,6 @@ group :development, :test do
   gem 'spring'
 end
 
-##############
-gem 'foundation-rails'
+group :production do
+  gem 'rails_12factor'
+end
