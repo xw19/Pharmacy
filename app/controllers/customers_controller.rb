@@ -7,8 +7,9 @@ class CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-    if @customer = Customer.find_or_create_by(customer_params)
-      redirect_to root_path, notice: 'Your Details created'
+    @customer.user = current_user
+    if @customer.save
+      redirect_to root_path, notice: 'Thanks! your Details created'
     else
       render 'new'
     end
@@ -21,7 +22,7 @@ class CustomersController < ApplicationController
 
   def update
     @customer = Customer.new(customer_params)
-    if @customer = Customer.find_or_create_by(customer_params)
+    if @customer = Customer.update(customer_params)
       redirect_to root_path, notice: 'Thanks! your details updated'
     else
       render 'new'
@@ -32,5 +33,11 @@ class CustomersController < ApplicationController
 
   def customer_params
     params.require(:customer).permit(:name, :address_line1, :address_line2, :city_village, :district, :state, :pin, :mobile, :phone)
+  end
+
+  def shipping_details
+    unless current_user.customer
+      redirect_to new_customer_path, alert: "Please fill out your details"
+    end
   end
 end

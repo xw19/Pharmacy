@@ -1,5 +1,6 @@
 class Customer < ActiveRecord::Base
   has_many :orders
+  belongs_to :user
 
   validates :name , presence: true, length: { maximum: 50 }
   validates :address_line1 , presence: true, length: { maximum: 150 }

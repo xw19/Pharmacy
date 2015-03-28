@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'carts/show'
+  resources :orders
 
   resource :cart, only: [:show] do
     put 'add/:medicine_order_id', to: 'carts#add', as: :add_to
@@ -9,5 +9,5 @@ Rails.application.routes.draw do
 
   devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
   resources :customers
-  root 'customers#new'
+  root 'orders#index'
 end
