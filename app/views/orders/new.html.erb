@@ -1,0 +1,18 @@
+<h1>Orders</h1>
+
+<div class="container-fluid">
+  <%= simple_form_for @order do |form| %>
+    <%= form.input :prescription, as: :file %>
+    <%= form.simple_fields_for :medicine_orders do |mo| %>
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <%= mo.input :medicine_name %>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <%= mo.input :quantity, as: :integer %>
+        </div>
+      </div>
+    <% end %>
+    <%= form.button :submit %>
+  <% end %>
+</div>

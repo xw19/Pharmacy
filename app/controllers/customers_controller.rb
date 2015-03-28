@@ -35,9 +35,4 @@ class CustomersController < ApplicationController
     params.require(:customer).permit(:name, :address_line1, :address_line2, :city_village, :district, :state, :pin, :mobile, :phone)
   end
 
-  def shipping_details
-    unless current_user.customer
-      redirect_to new_customer_path, alert: "Please fill out your details"
-    end
-  end
 end

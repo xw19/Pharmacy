@@ -1,0 +1,16 @@
+<h1>All Orders</h1>
+<% @orders.each do |order| %>
+<div class="panel panel-default">
+  <div class="panel-heading"><%= order.status %></div>
+  <div class="panel-body">
+    <table class="table">
+      <% order.medicine_orders.each do |medicine| %>
+        <tr>
+          <td><%= medicine.medicine_name %></td>
+          <td><%= medicine.quantity %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+<% end %>
