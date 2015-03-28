@@ -203,7 +203,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass
+  bootstrap-sass (~> 3.3.4)
   byebug
   carrierwave
   coffee-rails (~> 4.1.0)
