@@ -6,6 +6,6 @@
   <%= form.input :district %>
   <%= form.input :state %>
   <%= form.input :pin %>
-  <%= form.input :mobile, input_html: { value: form.object.mobile || current_user.mobile } %>
+  <%= form.input :mobile, input_html: { value: form.object.mobile || current_user.mobile} %>
   <%= form.button :submit %>
 <% end %>
