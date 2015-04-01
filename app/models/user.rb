@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   has_many :orders
   has_one :customer
 
-  validates :mobile, presence: true, format: { with: /(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}/ }, length: { maximum: 14 }
-
+  validates :mobile, presence: true,uniqueness: true, format: { with: /(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}/ }, length: { maximum: 14 }
+  validates :terms_and_conditions, acceptance: true
 
   def login=(login)
     @login = login

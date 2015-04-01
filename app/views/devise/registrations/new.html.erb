@@ -10,9 +10,10 @@
           <%= f.input :email, required: true, autofocus: true %>
           <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
           <%= f.input :password_confirmation, required: true %>
+          <%= f.input :terms_and_conditions, as: :boolean, required: true, label: "Accept <a href='#'>terms and conditions</a>.".html_safe %>
         </div>
         <div class="form-actions">
-          <%= f.button :submit, "Sign up" %>
+          <%= f.button :submit, "Sign up", class: "btn btn-primary"%>
         </div>
       </div>
     </div>

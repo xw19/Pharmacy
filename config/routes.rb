@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     put 'remove/:medicine_order_id', to: 'carts#remove', as: :remove_from
   end
 
-  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }
+  devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }, controllers: { registrations: 'registrations' }
   resources :customers
   root 'orders#index'
 end
