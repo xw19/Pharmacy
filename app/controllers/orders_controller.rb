@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     5.times { @order.medicine_orders.build }
+    @order.build_doctor_info
   end
 
 
@@ -26,7 +27,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:prescription, medicine_orders_attributes: [:id, :medicine_name, :quantity])
+    params.require(:order).permit(:prescription, medicine_orders_attributes: [:id, :medicine_name, :quantity], doctor_info_attributes: [:id, :name, :registration])
   end
 
   def shipping_details

@@ -13,6 +13,16 @@
         </div>
       </div>
     <% end %>
+    <%= form.simple_fields_for :doctor_info do |di| %>
+      <div class="row">
+        <div class="col-md-6 col-sm-12">
+          <%= di.input :name, label: "Doctor's Name" %>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <%= di.input :registration, label: "Doctor's Registration" %>
+        </div>
+      </div>
+    <% end %>
     <%= form.button :submit %>
   <% end %>
 </div>

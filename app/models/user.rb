@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   validates :mobile, presence: true,uniqueness: true, format: { with: /(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}/ }, length: { maximum: 14 }
   validates :terms_and_conditions, acceptance: true
 
+  accepts_nested_attributes_for :customer
+
   def login=(login)
     @login = login
   end
