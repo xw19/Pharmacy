@@ -8,7 +8,7 @@ class Customer < ActiveRecord::Base
   validates :city_village , presence: true, length: { maximum: 20 }
   validates :district , presence: true, length: { maximum: 20 }
   validates :phone, allow_blank: true, format: { with: /((\+*)((0[ -]+)*|(91 )*)(\d{12}+|\d{10}+))|\d{5}([- ]*)\d{6}|\d{2}([- ]*)\d{7}/ }, length: { maximum: 16 }
-  validates :mobile, presence: true, format: { with: /(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}/ }, length: { maximum: 14 }
+  # validates :mobile, presence: true, format: { with: /(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[789]\d{9}/ }, length: { maximum: 14 }
   validates :pin, presence: true, numericality: { only_integer: true }, :format => { :with => /[1-9]{1}[0-9]{5}/ }
 
 

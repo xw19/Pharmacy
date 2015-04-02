@@ -1,8 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
-
-  private
-
-  def sign_up_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :terms_and_conditions)
+  def new
+    build_resource({})
+    resource.build_customer
+    respond_with self.resource
   end
 end
