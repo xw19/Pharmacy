@@ -10,3 +10,20 @@
 .alert-notice {
     @extend .alert-success;
 }
+
+.footer {
+  background-color: #222222;
+  padding: 10px;
+  margin-top: 20px;
+  color: #9D9D9D;
+  a {
+    color: #9D9D9D;
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+  .right-menu {
+    float: right;
+  }
+}
