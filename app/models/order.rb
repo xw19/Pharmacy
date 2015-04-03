@@ -3,6 +3,8 @@ class Order < ActiveRecord::Base
   has_one :doctor_info
   belongs_to :user
 
+  paginates_per 10
+
   accepts_nested_attributes_for :medicine_orders, reject_if: lambda {|attributes| attributes['medicine_name'].blank?}
   accepts_nested_attributes_for :doctor_info, reject_if: lambda {|attributes| attributes['registration'].blank?}
 

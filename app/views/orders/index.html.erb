@@ -1,4 +1,9 @@
 <h1>All Orders</h1>
+<div class="row">
+  <div class="col-md-2 col-md-offset-5">
+    <%= paginate @orders %>
+  </div>
+</div>
 <% @orders.each do |order| %>
 <div class="panel panel-default">
   <div class="panel-heading"><%= order.status %></div>
@@ -14,3 +19,8 @@
   </div>
 </div>
 <% end %>
+<div class="row">
+  <div class="col-md-2 col-md-offset-5">
+    <%= paginate @orders %>
+  </div>
+</div>

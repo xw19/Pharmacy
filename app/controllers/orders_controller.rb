@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   before_action :shipping_details
 
   def index
-    @orders = current_user.orders
+    @orders = current_user.orders.order('created_at DESC').page params[:page]
   end
 
   def new
